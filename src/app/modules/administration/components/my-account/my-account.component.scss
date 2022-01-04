@@ -1,0 +1,22 @@
+:host {
+    width: 100%;
+}
+
+
+.info {
+    display: none;          
+    &.active {
+        display: flex;
+    }
+    animation: fadeIn .6s ease-in-out;
+}
+
+
+@keyframes fadeIn{
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

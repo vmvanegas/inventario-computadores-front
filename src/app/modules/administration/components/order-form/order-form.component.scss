@@ -1,0 +1,36 @@
+.total {
+    color: #2CA29B;
+    text-align: center;
+    span {
+        color: #333333;
+    }
+    h2, span {
+        font-size: 3rem;
+    }
+}
+
+
+.quantity {
+    display: flex;
+    align-items: center;
+    input, .fas.fa-check{
+        color: #2CA29B;
+        display: none;
+    }    
+
+    input {
+        color: #99abb4;
+        border: 1px solid #99abb4;
+        border-radius: 5px;
+    }
+}
+
+.editing {
+    .value, .far.fa-edit {
+        display: none;        
+    }
+
+    input, .fas.fa-check {
+        display: block;
+    }
+}

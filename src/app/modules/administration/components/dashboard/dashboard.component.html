@@ -1,0 +1,215 @@
+<div class="ms-card-container">
+  <div class="ms-card-container__header">
+  </div>
+  <div class="informative-cards row">
+    <div class="col-md-3 col-6 d-flex">
+      <div class="informative-card informative-card--1">
+        <div class="informative-card__icon">
+          <i class="fas fa-dolly-flatbed"></i>
+        </div>
+        <div class="informative-card__content">
+          <h3>Pedidos</h3>
+          <p>{{totalOrders}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-6 d-flex">
+      <div class="informative-card informative-card--2">
+        <div class="informative-card__icon">
+          <i class="fas fa-user-friends"></i>
+        </div>
+        <div class="informative-card__content">
+          <h3>Clientes</h3>
+          <p>{{totalCustomers}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-6 d-flex">
+      <div class="informative-card informative-card--3">
+        <div class="informative-card__icon">
+          <i class="fas fa-users-cog mr-2"></i>
+        </div>
+        <div class="informative-card__content">
+          <h3>Proveedores</h3>
+          <p>{{totalProviders}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-6 d-flex">
+      <div class="informative-card informative-card--4">
+        <div class="informative-card__icon">
+          <i class="fas fa-user-tie mr-2"></i>
+        </div>
+        <div class="informative-card__content">
+          <h3>Empleados</h3>
+          <p>{{totalEmployee}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mx-0">
+    <div class="col-md-6">
+      <div class="sales h-100">
+        <div class="card h-100">
+          <div class="card-header">
+            <h2>Ventas realizadas esta semana</h2>
+          </div>
+          <div class="content">
+            <div class="icon my-4">
+              <i class="fas fa-cash-register"></i>
+            </div>
+            <div class="text" [class.decrease]="salesIncreasePercentage?.increase == false">
+              <h2>{{salesIncreasePercentage?.currentWeek}} ventas
+                realizadas
+              </h2>
+              <p>{{salesIncreasePercentage?.percent}}% <i class="fas fa-caret-up"></i></p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <!--  <div class="sales">
+        <div class="card">
+          <div class="current-week-sales">
+            <h3>Ventas</h3>
+            <small>esta semana</small>
+            <div class="text-center" *ngIf="salesIncreasePercentage?.percent != -1">
+              <p class="mt-4">Las ventas {{(salesIncreasePercentage?.increase || salesIncreasePercentage?.percent == 0)?
+                "aumentaron": "se redujeron"}} un</p>
+              <span class="percent">
+                {{salesIncreasePercentage?.percent}}%
+                <i *ngIf="salesIncreasePercentage?.increase && salesIncreasePercentage?.percent != 0"
+                  class="fas fa-caret-up"></i>
+                <i *ngIf="!salesIncreasePercentage?.increase && salesIncreasePercentage?.percent != 0"
+                  class="fas fa-caret-down"></i>
+              </span>
+              <p class="mb-5">respecto a la semana pasada</p>
+            </div>
+          </div>
+          <div class="row mx-0">
+            <div class="col-md-6 text-center">
+              <p>semana pasada</p>
+              <p>{{salesIncreasePercentage?.lastWeek}} ventas</p>
+            </div>
+            <div class="col-md-6 text-center">
+              <p>semana actual</p>
+              <p>{{salesIncreasePercentage?.currentWeek}} ventas</p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <canvas id="myChartBar">
+        </canvas>
+      </div>
+    </div>
+  </div>
+  <div class="row mx-0 my-5">
+    <div class="col-md-6">
+      <div class="best-selling-products">
+        <div class="card">
+          <div class="card-header">
+            <h2>Productos mas vendidos</h2>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Cantidad vendida</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let product of bestSellingProduct let i = index" [class.active]="i == 0">
+                  <td>{{i + 1}}</td>
+                  <td>{{product.product.nombre}}</td>
+                  <td>{{product.quantity}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="least-sold-products">
+        <div class="card">
+          <div class="card-header">
+            <h2>Productos menos vendidos</h2>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Cantidad vendida</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let product of leastSoldProduct let i = index" [class.active]="i == 0">
+                  <td>{{i + 1}}</td>
+                  <td>{{product.product.nombre}}</td>
+                  <td>{{product.quantity}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mx-0 mt-5">
+    <div class="col-md-6 mb-5">
+      <div class="card-warning h-100">
+        <div class="card h-100">
+          <div class="card-header">
+            <h2>Fecha de vencimiento cercana</h2>
+          </div>
+          <div class="content">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="text">
+                  <h2>{{closeDueDate?.nombre}}</h2>
+                  <p>vence en {{closeDueDate?.fechaVencimiento}} días</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="icon">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-5">
+      <div class="card-warning h-100">
+        <div class="card h-100">
+          <div class="card-header">
+            <h2>Bajo stock</h2>
+          </div>
+          <div class="content">
+            <div class="row mx-0">
+              <div class="col-md-8">
+                <div class="text">
+                  <h2>{{lowStock?.nombre}}</h2>
+                  <p>{{lowStock?.stock}} unidades restantes</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="icon">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

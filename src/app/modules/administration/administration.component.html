@@ -1,0 +1,70 @@
+<div class="administration" #admin (window:resize)="resize()">
+    <header class="ms-header">
+        <button class="btn btn-toggle" #btnToggle (click)="toggleSideBar()"><i class="fas fa-bars"></i></button>
+        <!-- <img class="ms-header__logo" src="../../../assets/img-signup/logo-mispollos.svg" width="100px" alt=""> -->
+        <div class="ms-header__menu" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()">
+            <button class="btn dropdown-toggle">Natalia</button>
+            <div class="dropdown" #myDropDown>
+                <ul>
+                    <!-- <li>
+                        <a class="btn" routerLink="/administracion/mi-cuenta">Mi cuenta</a>
+                    </li> -->
+                    <li>
+                        <button class="btn" (click)="logout()">Salir</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <nav class="side-nav" #sideNav (window:click)="closeSideBar($event)">
+        <div class="side-nav__logo">
+            <!-- <img src="../../../assets/img-signup/logo-mispollos.svg" width="160px" alt=""> -->
+            <h1>TI</h1>
+        </div>
+        <ul class="side-nav__menu">
+<!--             <li><a routerLink="dashboard" routerLinkActive="active"><i class="fas fa-chart-line mr-2"></i>Dashboard</a></li>
+ -->        <li><a routerLink="laptops" routerLinkActive="active"><i class="fas fa-boxes mr-2"></i>Laptops</a></li>
+            <li><a routerLink="cargadores" routerLinkActive="active"><i class="far fa-file-alt mr-2"></i>Cargadores</a></li>
+            <li><a routerLink="diademas" routerLinkActive="active"><i class="fas fa-th-large mr-2"></i>Diademas</a></li>
+            <li><a routerLink="mouses" routerLinkActive="active"><i class="fas fa-users mr-2"></i>Mouses</a></li>
+            <li><a routerLink="teclados" routerLinkActive="active"><i class="fas fa-users-cog mr-2"></i>Teclados</a></li>
+            <li><a routerLink="monitores" routerLinkActive="active"><i class="fas fa-users-cog mr-2"></i>Monitores</a></li>
+            <li><a routerLink="basesdemadera" routerLinkActive="active"><i class="fas fa-users-cog mr-2"></i>Bases de madera</a></li>
+            <li><a routerLink="cablesvga" routerLinkActive="active"><i class="fas fa-users-cog mr-2"></i>Cables VGA</a></li>
+<!--             <li *ngIf="user.rol == 'Admin'"><a routerLink="empleados" routerLinkActive="active"><i class="fas fa-user-tie mr-2"></i>Empleados</a></li>
+ -->        </ul>
+        <div class="side-nav__copy">
+            <p>TI © {{currentYear()}}</p>
+        </div>
+    </nav>
+
+    <div class="administration-content">
+        <!-- <app-breadcrumb></app-breadcrumb> -->
+        <router-outlet></router-outlet>
+    </div>
+
+    <footer class="ms-footer">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex justify-content-center">
+                    <div class="ms-footer__column">
+                        <h3 class="title">Contáctanos</h3>
+                        <p class="info">aprendiz@misena.edu.co | 3008947784</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 align-items-center">
+                <div class="d-flex justify-content-center">
+                    <div class="ms-footer__column">
+                        <h3 class="title">Sobre nosotros</h3>
+                        <p class="info"><a href="">Misión</a> | <a href="">Visión</a> | <a href="">Términos y
+                                condiciones</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<div class="bg-shadow" #bgShadow></div>

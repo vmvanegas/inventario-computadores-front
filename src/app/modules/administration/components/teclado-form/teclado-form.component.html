@@ -1,0 +1,128 @@
+<div class="ms-card-container">
+    <div class="ms-card-container__header">
+        <h1>{{editing? 'Editar teclado':'Agregar teclado'}}</h1>
+    </div>
+    <form class="modal-form" [formGroup]="form" (ngSubmit)="send()">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="codigo" class="form-label">Codigo</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-icon"><i class="far fa-user"></i></span>
+                    <input type="text" class="form-control" name="codigo" formControlName="codigo" maxlength="60"
+                        required>
+                </div>
+                <!-- Alerta              comienza            -->
+                <div *ngIf="f.codigo.invalid && (f.codigo.dirty || f.codigo.touched)">
+
+                    <div class="alert alert-danger" *ngIf="f.codigo.errors.required">
+                        Este campo es obligatorio.
+                    </div>
+                    <div class="alert alert-danger" *ngIf="f.codigo.errors.maxlength">
+                        El Nombre no puede contener mas de 50 caracteres.
+                    </div>
+
+                </div>
+                <!-- Alerta       termina                  -->
+
+            </div>
+            <div class="col-md-6">
+                <label for="responsable" class="form-label">Responsable</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-icon"><i class="far fa-user"></i></span>
+                    <input type="text" class="form-control" name="responsable" formControlName="responsable"
+                        maxlength="60" required>
+                </div>
+                <!-- Alerta              comienza            -->
+                <div *ngIf="f.responsable.invalid && (f.responsable.dirty || f.responsable.touched)">
+
+                    <div class="alert alert-danger" *ngIf="f.responsable.errors.required">
+                        Este campo es obligatorio.
+                    </div>
+                    <div class="alert alert-danger" *ngIf="f.responsable.errors.maxlength">
+                        El Nombre no puede contener mas de 50 caracteres.
+                    </div>
+
+                </div>
+                <!-- Alerta       termina                  -->
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="marca" class="form-label">Marca</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-icon"><i class="far fa-user"></i></span>
+                    <input type="text" class="form-control" name="marca" formControlName="marca" maxlength="60"
+                        required>
+                </div>
+                <!-- Alerta              comienza            -->
+                <div *ngIf="f.marca.invalid && (f.marca.dirty || f.marca.touched)">
+
+                    <div class="alert alert-danger" *ngIf="f.marca.errors.required">
+                        Este campo es obligatorio.
+                    </div>
+                    <div class="alert alert-danger" *ngIf="f.marca.errors.maxlength">
+                        El Nombre no puede contener mas de 50 caracteres.
+                    </div>
+
+                </div>
+                <!-- Alerta       termina                  -->
+
+            </div>
+            <div class="col-md-6">
+                <label for="ubicacion" class="form-label">Ubicación</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-icon"><i class="far fa-user"></i></span>
+                    <input type="text" class="form-control" name="ubicacion" formControlName="ubicacion" maxlength="60"
+                        required>
+                </div>
+                <!-- Alerta              comienza            -->
+                <div *ngIf="f.ubicacion.invalid && (f.ubicacion.dirty || f.ubicacion.touched)">
+
+                    <div class="alert alert-danger" *ngIf="f.ubicacion.errors.required">
+                        Este campo es obligatorio.
+                    </div>
+                    <div class="alert alert-danger" *ngIf="f.ubicacion.errors.maxlength">
+                        El Nombre no puede contener mas de 50 caracteres.
+                    </div>
+
+                </div>
+                <!-- Alerta       termina                  -->
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="estado" class="form-label">Estado</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-icon"><i class="far fa-user"></i></span>
+                    <input type="text" class="form-control" name="estado" formControlName="estado" maxlength="60"
+                        required>
+                </div>
+                <!-- Alerta              comienza            -->
+                <div *ngIf="f.estado.invalid && (f.estado.dirty || f.estado.touched)">
+
+                    <div class="alert alert-danger" *ngIf="f.estado.errors.required">
+                        Este campo es obligatorio.
+                    </div>
+                    <div class="alert alert-danger" *ngIf="f.estado.errors.maxlength">
+                        El Nombre no puede contener mas de 50 caracteres.
+                    </div>
+
+                </div>
+                <!-- Alerta       termina                  -->
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 ofset-md-3">
+                <div class="modal-form__actions">
+                    <a class="btn btn-secondary" style="min-width: 172px;"
+                        routerLink="/administracion/teclados">Cancelar</a>
+                    <button type="submit" class="btn btn-primary" style="min-width: 172px;">{{editing? 'Guardar':
+                        'Agregar'}}</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
