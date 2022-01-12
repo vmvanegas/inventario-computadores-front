@@ -19,8 +19,8 @@
 
     <nav class="side-nav" #sideNav (window:click)="closeSideBar($event)">
         <div class="side-nav__logo">
-            <!-- <img src="../../../assets/img-signup/logo-mispollos.svg" width="160px" alt=""> -->
-            <h1>TI</h1>
+            <img src="../../../assets/img-general/logo.png" width="160px" alt="">
+            <!-- <h1>TI</h1> -->
         </div>
         <ul class="side-nav__menu">
 <!--             <li><a routerLink="dashboard" routerLinkActive="active"><i class="fas fa-chart-line mr-2"></i>Dashboard</a></li>
@@ -35,7 +35,7 @@
 <!--             <li *ngIf="user.rol == 'Admin'"><a routerLink="empleados" routerLinkActive="active"><i class="fas fa-user-tie mr-2"></i>Empleados</a></li>
  -->        </ul>
         <div class="side-nav__copy">
-            <p>TI © {{currentYear()}}</p>
+            <p>© {{currentYear()}}</p>
         </div>
     </nav>
 

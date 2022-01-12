@@ -15,9 +15,9 @@ body {
 }
 
 a {
-  color: #2CA29B;
+  color: #00acec;
   &:hover {
-    color: #2CA29B;
+    color: #00acec;
   }
 }
 
@@ -153,7 +153,7 @@ table tbody tr:hover {
         color: #999999;
         transition: all .3s ease-in-out;
         &.active {
-          background-color: #2CA29B;
+          background-color: #00acec;
           color: #fff;
         }
         &.disabled {
@@ -185,14 +185,14 @@ table tbody tr:hover {
 }
 
 .btn-primary {
-  background-color: #2CA29B;  
+  background-color: #00acec;  
   &:hover {
     box-shadow: inset 0 0 0 2em rgba(255, 255, 255, 0.15), 0px 0px 10px rgba(0, 0, 0, 0.30) !important;
     transform: scale(1.05);
-    background-color: #2CA29B !important;
+    background-color: #00acec !important;
   }  
   &:focus, &:active, &:active:focus {
-    background-color: #2CA29B !important;
+    background-color: #00acec !important;
     box-shadow: inset 0 0 0 2em rgba(0, 0, 0, 0.15), 0px 0px 10px rgba(0, 0, 0, 0.30) !important;
     transform: scale(1);
   }
@@ -200,17 +200,17 @@ table tbody tr:hover {
 
 .btn-outline-primary {
   background-color: transparent;  
-  color: #2CA29B;
-  border: 1px solid #2CA29B;
+  color: #00acec;
+  border: 1px solid #00acec;
   &:hover {
     box-shadow: inset 0 0 0 2em rgba(255, 255, 255, 0.15), 0px 0px 10px rgba(0, 0, 0, 0.30) !important;
     transform: scale(1.05);
-    background-color: #2CA29B !important;
-    border-color: #2CA29B;
+    background-color: #00acec !important;
+    border-color: #00acec;
   }  
   &:focus, &:active, &:active:focus {
-    background-color: #2CA29B !important;
-    border-color: #2CA29B;
+    background-color: #00acec !important;
+    border-color: #00acec;
     box-shadow: inset 0 0 0 2em rgba(0, 0, 0, 0.15), 0px 0px 10px rgba(0, 0, 0, 0.30) !important;
     transform: scale(1);
   }
@@ -267,16 +267,16 @@ table tbody tr:hover {
 }
 
 .btn-edit {
-    background-color: #2421DA;
+    background-color: #043262;
 }
 
 .btn-delete {
-    background-color: #2CA29B;
+    background-color: #00acec;
 }
 
 /* LINK STYLES */
 .ms-hightlight {
-  color: #2CA29B;
+  color: #00acec;
   text-decoration: none;
   text-align: center;
 }
@@ -350,14 +350,14 @@ button.ms-hightlight {
           left: .5rem;
           transform: translateY(-50%);
           z-index: 1030;
-          color: #2CA29B;
+          color: #00acec;
       }
       input.form-control, select.form-control{
           padding-left: 2rem;
           border-radius: 5px !important;
           &:focus{
               box-shadow: none;
-              border-color: #2CA29B;
+              border-color: #00acec;
           }
           &::placeholder {
               color: #999999;
@@ -390,13 +390,13 @@ button.ms-hightlight {
         right: .5rem;
         transform: translateY(-50%);
         z-index: 1030;
-        color: #2CA29B;
+        color: #00acec;
       }        
 
       textarea.form-control {
         &:focus{
           box-shadow: none;
-          border-color: #2CA29B;
+          border-color: #00acec;
         }
         &::placeholder {
             color: #999999;
@@ -472,7 +472,7 @@ button.ms-hightlight {
   position: relative;
   .active-bar{
     height: 5px;
-    background-color: #2CA29B;
+    background-color: #00acec;
     position: absolute;
     top: 100%;
     transition: all ease-in-out .3s;
@@ -484,7 +484,7 @@ button.ms-hightlight {
     padding: 8px 14px;
     transition: all ease-in-out .3s;
     &.active {
-      color: #2CA29B;
+      color: #00acec;
     }
   }
 }
