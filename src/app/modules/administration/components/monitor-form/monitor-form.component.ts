@@ -25,11 +25,11 @@ export class MonitorFormComponent implements OnInit {
     private router: Router
   ) {
     this.form = this.formBuilder.group({
-      codigo: ["", [Validators.required, Validators.maxLength(100)]],
-      responsable: ["", [Validators.required, Validators.maxLength(100)]],
-      marca: ["", [Validators.required, Validators.maxLength(100)]],
-      estado: ["", [Validators.required, Validators.maxLength(100)]],
-      ubicacion: ["", [Validators.required, Validators.maxLength(100)]],
+      codigo: ["", [Validators.required, Validators.maxLength(60)]],
+      responsable: ["", [Validators.required, Validators.maxLength(60)]],
+      marca: ["", [Validators.required, Validators.maxLength(60)]],
+      estado: ["", [Validators.required, Validators.maxLength(60)]],
+      ubicacion: ["", [Validators.required, Validators.maxLength(60)]],
     })
 
     const itemId = this.activatedRoute.snapshot.paramMap.get('id');
