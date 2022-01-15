@@ -20,7 +20,7 @@
                         </section>
                         <section class="form-section">
                             <h3 class="text-center title">Registro</h3>
-                            <form action="" class="ms-form-login" autocomplete="off" [formGroup]="profileForm"
+                            <form action="" class="ms-form-login" autocomplete="off" [formGroup]="form"
                                 (ngSubmit)="signUp()">
 
                                 <div class="row">
@@ -70,54 +70,30 @@
                                         </div>
                                     </div>
                                 </div>
-                                <label for="storeName" class="form-label">Nombre de tienda</label>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-icon"><i class="far fa-building"></i></span>
-                                    <input type="text" class="form-control" pattern="[a-zA-Z ]{0,}" maxlength="60"
-                                        name="storeName" formControlName="storeName" placeholder="Nombre de tienda"
-                                        required>
-                                </div>
-                                <div *ngIf="form.storeName.invalid && (form.storeName.dirty && form.storeName.touched)">
-                                    <div class="alert alert-danger" *ngIf="form.storeName.errors.required">
-                                        Este campo es obligatorio.
-                                    </div>
-                                    <div class="alert alert-danger" *ngIf="form.storeName.errors.maxlength">
-                                        El nombre de la tienda no puede contener más de 60 caracteres.
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="cargo" class="form-label">Cargo</label>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-icon"><i class="far fa-user"></i></span>
+                                            <input type="text" class="form-control" pattern="[a-zA-Z ]{0,}"
+                                                maxlength="40" minlength="2" name="cargo"
+                                                formControlName="cargo" placeholder="Desarrollador" required>
+                                        </div>
+                                        <div
+                                            *ngIf="form.cargo.invalid && (form.cargo.dirty && form.cargo.touched)">
+
+                                            <div class="alert alert-danger"
+                                                *ngIf="form.cargo.errors.required">
+                                                Este campo es obligatorio.
+                                            </div>
+                                            <div class="alert alert-danger"
+                                                *ngIf="form.cargo.errors.maxlength">
+                                                Este campo no puede contener más de 60 caracteres.
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
-
-                                <label for="address" class="form-label">Dirección</label>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-icon"><i class="fas fa-map-marker-alt"></i></span>
-                                    <input type="text" class="form-control" name="address" formControlName="address"
-                                        maxlength="60" placeholder="Dirección de tienda" required>
-                                </div>
-
-                                <div *ngIf="form.storeName.invalid && (form.storeName.dirty && form.storeName.touched)">
-                                    <div class="alert alert-danger" *ngIf="form.storeName.errors.required">
-                                        Este campo es obligatorio.
-                                    </div>
-                                    <div class="alert alert-danger" *ngIf="form.storeName.errors.maxlength">
-                                        La dirección no puede contener más de 60 caracteres.
-                                    </div>
-                                </div>
-
-                                <label for="password" class="form-label">Teléfono</label>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-icon"><i class="fas fa-phone-alt"></i></span>
-                                    <input type="tel" class="form-control" name="telephone" formControlName="telephone"
-                                        maxlength="20" placeholder="7777777" maxlength="20" required>
-                                </div>
-
-                                <div *ngIf="form.telephone.invalid && (form.telephone.dirty && form.telephone.touched)">
-                                    <div class="alert alert-danger" *ngIf="form.telephone.errors.required">
-                                        Este campo es obligatorio.
-                                    </div>
-                                    <div class="alert alert-danger" *ngIf="form.telephone.errors.maxlength">
-                                        La dirección no puede contener más de 20 caracteres.
-                                    </div>
-                                </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label for="email" class="form-label">Correo</label>
@@ -140,38 +116,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="col-md-6">
-                                        <label for="email" class="form-label">Confirmación de correo</label>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-icon">@</span>
-                                            <input type="email" class="form-control" name="emailConfirmation"
-                                                formControlName="emailConfirmation" onpaste="return false;"
-                                                placeholder="example@host.com" maxlength="60" required>
-                                        </div>
-                                        <div
-                                            *ngIf="form.emailConfirmation.invalid && (form.emailConfirmation.dirty && form.emailConfirmation.touched)">
-
-                                            <div class="alert alert-danger"
-                                                *ngIf="form.emailConfirmation.errors.required">
-                                                Este campo es obligatorio.
-                                            </div>
-                                            <div class="alert alert-danger"
-                                                *ngIf="form.emailConfirmation.errors.maxlength">
-                                                El correo no puede contener más de 60 caracteres.
-                                            </div>
-                                            <div class="alert alert-danger" *ngIf="form.emailConfirmation.errors.email">
-                                                El correo es inválido.
-                                            </div>
-                                            <div class="alert alert-danger"
-                                                *ngIf="form.emailConfirmation.errors.mustMatch">
-                                                Los correos no coinciden.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
                                     <div class="col-md-6">
                                         <label for="password" class="form-label">Contraseña</label>
                                         <div class="input-group mb-3">
@@ -194,41 +138,6 @@
                                             </div>
                                             <div class="alert alert-danger" *ngIf="form.password.errors.pattern">
                                                 La contraseña debe contener 1 mayúscula 1 minúscula y un número.
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label for="password" class="form-label">Confirmación de contraseña</label>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-icon"><i class="fas fa-unlock-alt"></i></span>
-                                            <input type="password" class="form-control" name="passwordConfirmation"
-                                                formControlName="passwordConfirmation" onpaste="return false;"
-                                                placeholder="*********"
-                                                pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{0,}$" maxlength="16"
-                                                minlength="8" required>
-                                        </div>
-                                        <div
-                                            *ngIf="form.passwordConfirmation.invalid && (form.passwordConfirmation.dirty && form.passwordConfirmation.touched)">
-                                            <div class="alert alert-danger"
-                                                *ngIf="form.passwordConfirmation.errors.required">
-                                                Este campo es obligatorio.
-                                            </div>
-                                            <div class="alert alert-danger"
-                                                *ngIf="form.passwordConfirmation.errors.maxlength">
-                                                La contraseña no puede contener más de 16 caracteres.
-                                            </div>
-                                            <div class="alert alert-danger"
-                                                *ngIf="form.passwordConfirmation.errors.minlength">
-                                                La contraseña no puede contener menos de 8 caracteres.
-                                            </div>
-                                            <div class="alert alert-danger"
-                                                *ngIf="form.passwordConfirmation.errors.pattern">
-                                                La contraseña debe contener 1 mayúscula 1 minúscula y un número.
-                                            </div>
-                                            <div class="alert alert-danger"
-                                                *ngIf="form.passwordConfirmation.errors.mustMatch">
-                                                Las contraseñas no coinciden.
                                             </div>
                                         </div>
                                     </div>

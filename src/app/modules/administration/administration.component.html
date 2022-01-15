@@ -3,7 +3,7 @@
         <button class="btn btn-toggle" #btnToggle (click)="toggleSideBar()"><i class="fas fa-bars"></i></button>
         <!-- <img class="ms-header__logo" src="../../../assets/img-signup/logo-mispollos.svg" width="100px" alt=""> -->
         <div class="ms-header__menu" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()">
-            <button class="btn dropdown-toggle">Natalia</button>
+            <button class="btn dropdown-toggle">{{user.nombre}}</button>
             <div class="dropdown" #myDropDown>
                 <ul>
                     <!-- <li>

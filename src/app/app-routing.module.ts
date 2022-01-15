@@ -12,14 +12,14 @@ const routes: Routes = [
   { path:'registro', component: SignupComponent},
   { path:'recuperar-clave/:token', component: RecoverPasswordComponent},
   { path:'clave-olvidada', component: ForgottenPasswordComponent},
-  { path:'login', component: LoginComponent/* , canActivate: [CanEnterGuard] */},
+  { path:'login', component: LoginComponent, canActivate: [CanEnterGuard]},
   {
     path: 'administracion',
-    loadChildren: () => import('./modules/administration/administration.module').then(m => m.AdministrationModule)/* ,
-    canActivate: [AuthGuard] */
+    loadChildren: () => import('./modules/administration/administration.module').then(m => m.AdministrationModule),
+    canActivate: [AuthGuard]
   },
-  { path:'', pathMatch:'full', redirectTo: 'administracion'},
-  { path:'**', redirectTo: 'administracion'},
+  { path:'', pathMatch:'full', redirectTo: 'login'},
+  { path:'**', redirectTo: 'login'},
 ];
 
 @NgModule({

@@ -25,13 +25,9 @@ export class SignupComponent implements OnInit {
     this.profileForm = formBuilder.group({
       firstName: ['', [Validators.required, Validators.maxLength(40), Validators.minLength(2), Validators.pattern("[a-zA-Z ]{0,}")]],
       lastName: ['', [Validators.required, Validators.maxLength(40), Validators.minLength(2), Validators.pattern("[a-zA-Z ]{0,}")]],
-      email: ['', [Validators.required, Validators.maxLength(60), Validators.email]],
-      emailConfirmation: ['', [Validators.required, Validators.maxLength(60), Validators.email]],
+      nombreDeUsuario: ['', [Validators.required, Validators.maxLength(60)]],
       password: ['', [Validators.required, Validators.maxLength(16), Validators.minLength(8) ,Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{0,}$")]],
-      passwordConfirmation: ['', [Validators.required, Validators.maxLength(16), Validators.minLength(8) ,Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{0,}$")]],
-      storeName: ['', [Validators.required, Validators.maxLength(60)]],
-      address: ['', [Validators.required, Validators.maxLength(60)]],
-      telephone: ['', [Validators.required, Validators.maxLength(20)]],
+      cargo: ['', [Validators.required, Validators.maxLength(60)]],
     }, 
       {
         validators: Validators.compose([MustMatch('email', 'emailConfirmation'), MustMatch('password', 'passwordConfirmation')])

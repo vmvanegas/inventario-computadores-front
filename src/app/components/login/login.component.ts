@@ -41,24 +41,17 @@ export class LoginComponent implements OnInit {
     private userInfo: UserInfoService,
     ) { 
     this.loginForm = formBuilder.group({
-      email: ['', [Validators.required, Validators.maxLength(60), Validators.email]],
+      nombreDeUsuario: ['', [Validators.required, Validators.maxLength(60)]],
       password: ['', [Validators.required, Validators.maxLength(16), Validators.minLength(8), Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{0,}$")]]
     })
 
     this.profileForm = formBuilder.group({
       firstName: ['', [Validators.required, Validators.maxLength(40), Validators.minLength(2), Validators.pattern("[a-zA-Z ]{0,}")]],
       lastName: ['', [Validators.required, Validators.maxLength(40), Validators.minLength(2), Validators.pattern("[a-zA-Z ]{0,}")]],
-      email: ['', [Validators.required, Validators.maxLength(60), Validators.email]],
-      emailConfirmation: ['', [Validators.required, Validators.maxLength(60), Validators.email]],
+      nombreDeUsuario: ['', [Validators.required, Validators.maxLength(60)]],
       password: ['', [Validators.required, Validators.maxLength(16), Validators.minLength(8) ,Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{0,}$")]],
-      passwordConfirmation: ['', [Validators.required, Validators.maxLength(16), Validators.minLength(8) ,Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{0,}$")]],
-      storeName: ['', [Validators.required, Validators.maxLength(60)]],
-      address: ['', [Validators.required, Validators.maxLength(60)]],
-      telephone: ['', [Validators.required, Validators.maxLength(20)]],
-    }, 
-      {
-        validators: Validators.compose([MustMatch('email', 'emailConfirmation'), MustMatch('password', 'passwordConfirmation')])
-      }
+      cargo: ['', [Validators.required, Validators.maxLength(60)]],
+    }
     )
   }
 
@@ -77,12 +70,12 @@ export class LoginComponent implements OnInit {
     return this.profileForm.controls
   }
 
-  login() {     
+  login() {   
     if(this.loginForm.valid) {
 
       const body = {
-        Email: this.loginForm.controls['email'].value,
-        Password: this.loginForm.controls['password'].value
+        NombreDeUsuario: this.loginForm.controls['nombreDeUsuario'].value,
+        Clave: this.loginForm.controls['password'].value
       }
 
       this.authService.validateUser(body).subscribe(response=>{
@@ -106,13 +99,9 @@ export class LoginComponent implements OnInit {
       const body = {
         Nombre: this.profileForm.controls['firstName'].value,
         Apellido: this.profileForm.controls['lastName'].value,
-        Correo: this.profileForm.controls['email'].value,
+        NombreDeUsuario: this.profileForm.controls['nombreDeUsuario'].value,
         Clave: this.profileForm.controls['password'].value,
-        Tienda: {
-            Nombre: this.profileForm.controls['storeName'].value,
-            Direccion: this.profileForm.controls['address'].value,
-            Telefono: this.profileForm.controls['telephone'].value
-        }
+        Cargo: this.profileForm.controls['cargo'].value
       }
 
       this.authService.createUser(body).subscribe(
@@ -140,11 +129,12 @@ export class LoginComponent implements OnInit {
 
 
   redirectToAdmin() {
-    this.router.navigate(['/administracion/dashboard'])
+    this.router.navigate(['/administracion/laptops'])
   }
 
   redirectToLogin() {
-    this.router.navigate(['/login'])
+    /* this.router.navigate(['/login']) */
+    location.reload()
   }
 
 

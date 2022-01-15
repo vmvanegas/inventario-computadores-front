@@ -18,7 +18,7 @@ export class AdministrationComponent implements OnInit {
   constructor(
     private authService : AuthService,
   ) { 
-    /* this.user = JSON.parse(localStorage.getItem('user')) */
+    this.user = JSON.parse(localStorage.getItem('user'))
   }
 
   ngOnInit(): void {    
